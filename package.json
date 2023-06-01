@@ -1,6 +1,6 @@
 {
-  "name": "react-native-stepper",
-  "version": "1.0.0",
+  "name": "react-native-wizard-stepper",
+  "version": "1.0.1",
   "description": "Stepper react native",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/celciusjj/react-native-wizard-stepper.git"
   },
   "homepage": "",
   "scripts": {
@@ -22,6 +22,7 @@
     "rollup": "tsc && rollup -c rollup.config.js --bundleConfigAsCjs"
   },
   "keywords": [
+    "react-native-wizard-stepper",
     "react",
     "react-native",
     "native",
