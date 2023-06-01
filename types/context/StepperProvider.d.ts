@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 interface StepperContainerProps {
     children: ReactNode;
-    initialNumberSteps: number;
+    totalNumberSteps: number;
 }
 export interface StepperContextType {
     activeStep: number;
@@ -17,6 +17,6 @@ declare const StepperContext: React.Context<{
     totalSteps: number;
     isCompleted: boolean;
 }>;
-declare const StepperProvider: ({ children, initialNumberSteps }: StepperContainerProps) => React.JSX.Element;
+declare const StepperProvider: ({ children, totalNumberSteps }: StepperContainerProps) => React.JSX.Element;
 export { StepperContext };
 export default StepperProvider;

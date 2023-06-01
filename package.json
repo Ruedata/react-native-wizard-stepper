@@ -1,6 +1,6 @@
 {
   "name": "react-native-wizard-stepper",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Stepper react native",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

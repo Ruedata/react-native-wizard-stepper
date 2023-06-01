@@ -9,9 +9,10 @@ export interface StepIconProps {
     completedStepIconColor?: string;
     completeStepNumColor?: string;
     activeStepIconColor?: string;
+    inactiveStepIconColor?: string;
     activeStepNumColor?: string;
     disabledStepNumColor?: string;
     showLabelAboveSteps?: boolean;
 }
-declare const StepIcon: ({ label, labelStyle, stepNumber, isActiveStep, isCompletedStep, completedStepIconColor, activeStepIconColor, activeStepNumColor, completeStepNumColor, disabledStepNumColor, showLabelAboveSteps, }: StepIconProps) => React.JSX.Element;
+declare const StepIcon: ({ label, labelStyle, stepNumber, isActiveStep, isCompletedStep, completedStepIconColor, inactiveStepIconColor, activeStepIconColor, activeStepNumColor, completeStepNumColor, disabledStepNumColor, showLabelAboveSteps, }: StepIconProps) => React.JSX.Element;
 export default StepIcon;
