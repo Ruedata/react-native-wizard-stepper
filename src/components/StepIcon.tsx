@@ -19,6 +19,7 @@ export interface StepIconProps {
   completedStepIconColor?: string;
   completeStepNumColor?: string;
   activeStepIconColor?: string;
+  inactiveStepIconColor?: string;
   activeStepNumColor?: string;
   disabledStepNumColor?: string;
   showLabelAboveSteps?: boolean;
@@ -31,6 +32,7 @@ const StepIcon = ({
   isActiveStep,
   isCompletedStep,
   completedStepIconColor = '#4BB543',
+  inactiveStepIconColor = 'lightgray',
   activeStepIconColor = '#87CEEB',
   activeStepNumColor = 'white',
   completeStepNumColor = 'white',
@@ -77,7 +79,7 @@ const StepIcon = ({
   } else {
     stylesConfig = {
       circleStyle: {
-        backgroundColor: 'lightgray',
+        backgroundColor: inactiveStepIconColor,
       },
       stepNum: {
         color: disabledStepNumColor,

@@ -1,1 +1,1 @@
-export { default as StepperContainer } from "./StepperContextProvider";
+export { default as StepperProvider } from './StepperProvider';

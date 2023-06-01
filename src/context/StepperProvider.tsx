@@ -2,7 +2,7 @@ import React, { createContext, ReactNode, useEffect, useState } from 'react';
 
 interface StepperContainerProps {
   children: ReactNode;
-  initialNumberSteps: number;
+  totalNumberSteps: number;
 }
 
 export interface StepperContextType {
@@ -21,9 +21,9 @@ const StepperContext = createContext({
   isCompleted: false,
 });
 
-const StepperProvider = ({ children, initialNumberSteps = 1 }: StepperContainerProps) => {
+const StepperProvider = ({ children, totalNumberSteps = 1 }: StepperContainerProps) => {
   const [activeStep, setActiveStep] = useState(0);
-  const [totalSteps] = useState(initialNumberSteps);
+  const [totalSteps] = useState(totalNumberSteps);
   const [isCompleted, setIsCompleted] = useState(false);
 
   useEffect(() => {
