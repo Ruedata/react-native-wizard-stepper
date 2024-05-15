@@ -102,6 +102,7 @@ const StepperFlow = ({
       <View
         style={{
           maxHeight: 115,
+          backgroundColor: 'transparent',
         }}>
         <View
           style={[
@@ -146,6 +147,7 @@ export default StepperFlow;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "transparent",
   },
   stepIndicatorOuter: {
     zIndex: -1,
