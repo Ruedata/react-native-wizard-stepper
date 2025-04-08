@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
@@ -8,8 +8,8 @@ import {
   StyleProp,
   ViewStyle,
   Platform,
-} from 'react-native';
-import { useStepper } from '../hooks';
+} from "react-native";
+import { useStepper } from "../hooks";
 export interface StepIconProps {
   label?: string;
   labelStyle?: TextStyle;
@@ -31,12 +31,12 @@ const StepIcon = ({
   stepNumber,
   isActiveStep,
   isCompletedStep,
-  completedStepIconColor = '#4BB543',
-  inactiveStepIconColor = 'lightgray',
-  activeStepIconColor = '#87CEEB',
-  activeStepNumColor = 'white',
-  completeStepNumColor = 'white',
-  disabledStepNumColor = 'black',
+  completedStepIconColor = "#4BB543",
+  inactiveStepIconColor = "lightgray",
+  activeStepIconColor = "#87CEEB",
+  activeStepNumColor = "white",
+  completeStepNumColor = "white",
+  disabledStepNumColor = "black",
   showLabelAboveSteps = false,
 }: StepIconProps) => {
   const { width } = useWindowDimensions();
@@ -96,29 +96,32 @@ const StepIcon = ({
             style={[
               styles.labelContainer,
               {
-                paddingTop: '2%',
-                alignItems: 'center',
+                paddingTop: "2%",
+                alignItems: "center",
                 flex: 1,
                 height: (width * 10) / 100,
                 maxHeight: 50,
               },
-            ]}>
+            ]}
+          >
             <Text
               style={[
                 styles.label,
                 labelStyle,
                 {
-                  width: totalSteps > 8 ? width / 7 - 4 : width / totalSteps - 4,
+                  width:
+                    totalSteps > 8 ? width / 7 - 4 : width / totalSteps - 4,
                   color: isActiveStep
                     ? labelStyle?.color
                       ? labelStyle?.color
-                      : 'black'
-                    : 'transparent',
+                      : "black"
+                    : "transparent",
                 },
               ]}
               numberOfLines={2}
               minimumFontScale={0.9}
-              adjustsFontSizeToFit={Platform.OS === 'ios' ? true : false}>
+              adjustsFontSizeToFit={Platform.OS === "ios" ? true : false}
+            >
               {label}
             </Text>
           </View>
@@ -127,22 +130,24 @@ const StepIcon = ({
           style={[
             styles.stepIconCircleContainer,
             showLabelAboveSteps && {
-              paddingBottom: '4%',
+              paddingBottom: "4%",
             },
-          ]}>
+          ]}
+        >
           <View
             style={[
               {
                 width: (width * 10) / 100,
                 height: (width * 10) / 100,
                 borderRadius: (width * 10) / 100 / 2,
-                justifyContent: 'center',
-                alignItems: 'center',
-                maxHeight: 60,
-                maxWidth: 60,
+                justifyContent: "center",
+                alignItems: "center",
+                maxHeight: 32,
+                maxWidth: 32,
               },
               stylesConfig.circleStyle,
-            ]}>
+            ]}
+          >
             <Text style={styles.circleText}>
               <Text style={stylesConfig?.stepNum}>{stepNumber}</Text>
             </Text>
@@ -153,28 +158,31 @@ const StepIcon = ({
             style={[
               styles.labelContainer,
               {
-                alignItems: 'center',
+                alignItems: "center",
                 flex: 1,
                 height: (width * 10) / 100,
                 maxHeight: 50,
               },
-            ]}>
+            ]}
+          >
             <Text
               style={[
                 styles.label,
                 labelStyle,
                 {
-                  width: totalSteps > 8 ? width / 7 - 4 : width / totalSteps - 4,
+                  width:
+                    totalSteps > 8 ? width / 7 - 4 : width / totalSteps - 4,
                   color: isActiveStep
                     ? labelStyle?.color
                       ? labelStyle?.color
-                      : 'black'
-                    : 'transparent',
+                      : "black"
+                    : "transparent",
                 },
               ]}
               numberOfLines={2}
               minimumFontScale={0.9}
-              adjustsFontSizeToFit={Platform.OS === 'ios'}>
+              adjustsFontSizeToFit={Platform.OS === "ios"}
+            >
               {label}
             </Text>
           </View>
@@ -188,36 +196,36 @@ export default StepIcon;
 
 const styles = StyleSheet.create({
   stepIconContainer: {
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   stepIconInnerContainer: {
     flex: 1,
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   stepIconCircleContainer: {
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
     maxHeight: 60,
     maxWidth: 60,
   },
   labelContainer: {
-    width: '100%',
+    width: "100%",
   },
   label: {
-    textAlign: 'center',
+    textAlign: "center",
     flex: 1,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 12,
   },
   circleText: {
-    alignSelf: 'center',
-    fontWeight: 'bold',
+    alignSelf: "center",
+    fontWeight: "bold",
   },
 });

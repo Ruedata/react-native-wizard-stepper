@@ -6,11 +6,17 @@ import React, {
   useMemo,
   Children,
   cloneElement,
-} from 'react';
-import { LayoutRectangle, SafeAreaView, StyleSheet, useWindowDimensions, View } from 'react-native';
-import { useStepper } from '../hooks';
-import { StepProps } from './Step';
-import StepIcon, { StepIconProps } from './StepIcon';
+} from "react";
+import {
+  LayoutRectangle,
+  SafeAreaView,
+  StyleSheet,
+  useWindowDimensions,
+  View,
+} from "react-native";
+import { useStepper } from "../hooks";
+import { StepProps } from "./Step";
+import StepIcon, { StepIconProps } from "./StepIcon";
 
 export interface StepperFlowProps extends StepProps, StepIconProps {
   children: ReactElement<StepperFlowProps, any>[];
@@ -44,7 +50,7 @@ const StepperFlow = ({
   }, [activeStep]);
 
   const renderChildren = useMemo(() => {
-    const tmp = Children.map(children, ele => {
+    const tmp = Children.map(children, (ele) => {
       if (ele && isValidElement(ele) && !ele?.props?.hide) {
         return cloneElement(ele);
       }
@@ -64,18 +70,19 @@ const StepperFlow = ({
           key={i}
           style={{ flex: 1 }}
           onLayout={({ nativeEvent: offSet }) => {
-            setStepIconWidthOffSet(s => {
+            setStepIconWidthOffSet((s) => {
               return [...s, offSet].slice(-totalSteps).sort((a, b) => {
                 return a.layout.x - b.layout.x;
               });
             });
-          }}>
+          }}
+        >
           <StepIcon
             {...{ ...props, showLabelAboveSteps }}
             stepNumber={i + 1}
             isCompletedStep={isCompletedStep}
             isActiveStep={isActiveStep}
-            label={renderChildren[i]?.props?.label ?? ''}
+            label={renderChildren[i]?.props?.label ?? ""}
           />
         </View>,
       );
@@ -95,15 +102,19 @@ const StepperFlow = ({
     }
   };
 
-  const indicatorTop = useMemo(() => calculateIndicatorTop(width), [width, showLabelAboveSteps]);
+  const indicatorTop = useMemo(
+    () => calculateIndicatorTop(width),
+    [width, showLabelAboveSteps],
+  );
 
   return (
     <SafeAreaView style={styles.container}>
       <View
         style={{
           maxHeight: 115,
-          backgroundColor: 'transparent',
-        }}>
+          backgroundColor: "transparent",
+        }}
+      >
         <View
           style={[
             styles.stepIcons,
@@ -112,7 +123,8 @@ const StepperFlow = ({
               height: (width * 20) / 100,
               width: width,
             },
-          ]}>
+          ]}
+        >
           {renderStepIcons()}
           <View
             style={[
@@ -122,7 +134,8 @@ const StepperFlow = ({
                 top: indicatorTop,
                 width: stepIconWidthOffSet[totalSteps - 1]?.layout?.x,
               },
-            ]}>
+            ]}
+          >
             <View
               style={{
                 borderColor: completedBarColor,
@@ -135,7 +148,8 @@ const StepperFlow = ({
       </View>
       {
         <View style={styles.bodyContainer}>
-          {isValidElement(renderChildren[activeStep]) && cloneElement(renderChildren[activeStep])}
+          {isValidElement(renderChildren[activeStep]) &&
+            cloneElement(renderChildren[activeStep])}
         </View>
       }
     </SafeAreaView>
@@ -151,17 +165,18 @@ const styles = StyleSheet.create({
   },
   stepIndicatorOuter: {
     zIndex: -1,
-    position: 'absolute',
-    alignSelf: 'center',
+    position: "absolute",
+    alignSelf: "center",
   },
   bodyContainer: {
     flex: 1,
+    backgroundColor: "transparent",
   },
   stepIcons: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-    backgroundColor: 'white',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    backgroundColor: "transparent",
   },
 });
